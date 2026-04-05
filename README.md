@@ -1,14 +1,20 @@
+﻿python.exe manage.py runserver 127.0.0.1:8000
 
-python.exe manage.py runserver 127.0.0.1:8000
+
+## Проверка редиректов
+
+- http://127.0.0.1:8000/ -> Index
+- http://127.0.0.1:8000/about/ -> About
+- http://127.0.0.1:8000/contact/ -> временный редирект (302) на /about/
+- http://127.0.0.1:8000/details/ -> постоянный редирект (301) на /
 
 
-http://127.0.0.1:8000/
-http://127.0.0.1:8000/request/
-http://127.0.0.1:8000/request/?name=alex
-http://127.0.0.1:8000/user/
-http://127.0.0.1:8000/user/Alex/
-http://127.0.0.1:8000/user/alex/3465/
-http://127.0.0.1:8000/products/5/
-http://127.0.0.1:8000/products/5/comments
-http://127.0.0.1:8000/products/5/questions
 
+http://127.0.0.1:8000/index/0 -> Alex (200)
+http://127.0.0.1:8000/index/1 -> Bob (200)
+http://127.0.0.1:8000/index/2 -> Sam (200)
+http://127.0.0.1:8000/index/5 -> Not Found (404)
+
+http://127.0.0.1:8000/access/20 -> Доступ разрешен (200)
+http://127.0.0.1:8000/access/10 -> Доступ заблокирован: недостаточно лет (403)
+http://127.0.0.1:8000/access/100 -> Некорректные данные (400)

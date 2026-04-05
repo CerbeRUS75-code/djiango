@@ -3,24 +3,17 @@ URL configuration for Django project.
 """
 
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import path
 
 from example import views
 
 
-product_patterns = [
-    path("", views.products),
-    path("comments", views.comments),
-    path("questions", views.questions),
-]
-
-
 urlpatterns = [
     path("", views.index),
-    path("request/", views.request_info),
-    path("user/", views.user),
-    path("user/<str:name>/", views.user),
-    path("user/<str:name>/<int:code>/", views.user),
-    path("products/<int:id>/", include(product_patterns)),
+    path("about/", views.about),
+    path("contact/", views.contact),
+    path("details/", views.details),
+    path("index/<int:id>", views.people_index),
+    path("access/<int:age>", views.access),
     path("admin/", admin.site.urls),
 ]

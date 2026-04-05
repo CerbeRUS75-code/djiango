@@ -1,43 +1,39 @@
-﻿from django.http import HttpResponse
+﻿from django.http import (
+    HttpResponse,
+    HttpResponseBadRequest,
+    HttpResponseForbidden,
+    HttpResponseNotFound,
+    HttpResponsePermanentRedirect,
+    HttpResponseRedirect,
+)
 
 
 def index(request):
-    return HttpResponse(
-        "Главная страница",
-        content_type="text/html; charset=utf-8",
-        status=200,
-        headers={"SecretCode": "5555577777"},
-    )
+    return HttpResponse("Index")
 
 
-def request_info(request):
-    return HttpResponse(
-        f"""
-        <h2>HttpRequest</h2>
-        <p><b>scheme:</b> {request.scheme}</p>
-        <p><b>path:</b> {request.path}</p>
-        <p><b>method:</b> {request.method}</p>
-        <p><b>GET:</b> {request.GET}</p>
-        <p><b>headers:</b> {dict(request.headers)}</p>
-        <p><b>get_full_path:</b> {request.get_full_path()}</p>
-        <p><b>get_host:</b> {request.get_host()}</p>
-        <p><b>get_port:</b> {request.get_port()}</p>
-    """,
-        content_type="text/html; charset=utf-8",
-    )
+def about(request):
+    return HttpResponse("About")
 
 
-def user(request, name="Alex", code=345):
-    return HttpResponse(f"<h2>Имя: {name} код {code}</h2>")
+def contact(request):
+    return HttpResponseRedirect("/about/")
 
 
-def products(request, id):
-    return HttpResponse(f"Товар {id}")
+def details(request):
+    return HttpResponsePermanentRedirect("/")
 
 
-def comments(request, id):
-    return HttpResponse(f"Комментарии о товаре {id}")
+def people_index(request, id):
+    people = ["Alex", "Bob", "Sam"]
+    if id in range(0, len(people)):
+        return HttpResponse(people[id])
+    return HttpResponseNotFound("Not Found")
 
 
-def questions(request, id):
-    return HttpResponse(f"Вопросы о товаре {id}")
+def access(request, age):
+    if age not in range(1, 90):
+        return HttpResponseBadRequest("Некорректные данные")
+    if age > 17:
+        return HttpResponse("Доступ разрешен")
+    return HttpResponseForbidden("Доступ заблокирован: недостаточно лет")
