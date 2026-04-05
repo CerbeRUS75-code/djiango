@@ -1,39 +1,43 @@
-from django.http import HttpResponse
+﻿from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse("<h2>Главная</h2>")
-
-
-def about(request, user, email):
     return HttpResponse(
-        f"""
-        <h2>О пользователе</h2>
-        <p>Login: {user}</p>
-        <p>Email: {email}</p>
-    """
+        "Главная страница",
+        content_type="text/html; charset=utf-8",
+        status=200,
+        headers={"SecretCode": "5555577777"},
     )
 
 
-def contact(request):
-    return HttpResponse("<h2>Контакты</h2>")
-
-
-def user1(request, login, email):
+def request_info(request):
     return HttpResponse(
         f"""
-        <h2>Пользователь 1</h2>
-        <p>Login: {login}</p>
-        <p>Email: {email}</p>
-    """
+        <h2>HttpRequest</h2>
+        <p><b>scheme:</b> {request.scheme}</p>
+        <p><b>path:</b> {request.path}</p>
+        <p><b>method:</b> {request.method}</p>
+        <p><b>GET:</b> {request.GET}</p>
+        <p><b>headers:</b> {dict(request.headers)}</p>
+        <p><b>get_full_path:</b> {request.get_full_path()}</p>
+        <p><b>get_host:</b> {request.get_host()}</p>
+        <p><b>get_port:</b> {request.get_port()}</p>
+    """,
+        content_type="text/html; charset=utf-8",
     )
 
 
-def user2(request, login, email):
-    return HttpResponse(
-        f"""
-        <h2>Пользователь 2</h2>
-        <p>Login: {login}</p>
-        <p>Email: {email}</p>
-    """
-    )
+def user(request, name="Alex", code=345):
+    return HttpResponse(f"<h2>Имя: {name} код {code}</h2>")
+
+
+def products(request, id):
+    return HttpResponse(f"Товар {id}")
+
+
+def comments(request, id):
+    return HttpResponse(f"Комментарии о товаре {id}")
+
+
+def questions(request, id):
+    return HttpResponse(f"Вопросы о товаре {id}")
