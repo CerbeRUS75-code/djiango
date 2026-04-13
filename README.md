@@ -1,4 +1,4 @@
-﻿# Django Учебный Проект (lesson-5)
+﻿# Django Учебный Проект (lesson-6)
 
 ## Запуск
 
@@ -7,18 +7,14 @@ cd C:\django
 C:\django\Python312\python.exe manage.py runserver 127.0.0.1:8000
 ```
 
-## Проверка страниц
+## Проверка
 
+Открой одну страницу:
 - http://127.0.0.1:8000/
-- http://127.0.0.1:8000/about/
-- http://127.0.0.1:8000/projects/
-- http://127.0.0.1:8000/contacts/
 
-## Что реализовано
+На странице есть 3 формы:
+1. Обычная HTML-форма
+2. Django Form (`forms.Form`) + вывод `as_table/as_ul/as_p/as_div`
+3. Сложная форма с разными типами полей
 
-- Static-файлы: `example/static/css/style.css`, `example/static/images/*`
-- Базовый шаблон: `example/templates/base.html`
-- Наследование шаблонов через `{% extends "base.html" %}`
-- Вложенный шаблон подвала через `{% include "footer.html" %}`
-- Bootstrap (CDN) + собственный CSS
-- Сайт-визитка из нескольких страниц с изображениями
+После отправки любой формы сверху показывается результат обработки.
