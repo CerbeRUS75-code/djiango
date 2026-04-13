@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ title }}</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <h1>Пример использования условного оператора</h1>
+
+    {% if n > 0 %}
+        <p>Число положительное</p>
+    {% elif n < 0 %}
+        <p>Число отрицательное</p>
+    {% else %}
+        <p>Число равно нулю</p>
+    {% endif %}
+
+    <p>Текущее время: {% now "N j, Y, P" %}</p>
+
+    <nav>
+        <a href="/">Главная</a> |
+        <a href="/about/">О нас</a>
+    </nav>
+</body>
+</html>

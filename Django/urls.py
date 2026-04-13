@@ -11,9 +11,6 @@ from example import views
 urlpatterns = [
     path("", views.index),
     path("about/", views.about),
-    path("contact/", views.contact),
-    path("details/", views.details),
-    path("index/<int:id>", views.people_index),
-    path("access/<int:age>", views.access),
+    path("contacts/", views.contacts),
     path("admin/", admin.site.urls),
 ]

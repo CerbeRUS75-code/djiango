@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ title }}</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <h1>Страница About</h1>
+
+    <p>С экранированием:</p>
+    <div>{{ body }}</div>
+
+    <p>Без экранирования (autoescape off):</p>
+    {% autoescape off %}
+        <div>{{ body }}</div>
+    {% endautoescape %}
+
+    <nav>
+        <a href="/">Главная</a> |
+        <a href="/contacts/">Контакты</a>
+    </nav>
+</body>
+</html>
