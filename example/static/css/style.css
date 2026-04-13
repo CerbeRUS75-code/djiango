@@ -1,0 +1,21 @@
+﻿body {
+    background: #f7f9fc;
+}
+
+h1 {
+    color: #1f2937;
+    font-weight: 700;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.card {
+    border-radius: 0.75rem;
+}
+
+footer {
+    background: #ffffff;
+}

@@ -11,6 +11,7 @@ from example import views
 urlpatterns = [
     path("", views.index),
     path("about/", views.about),
+    path("projects/", views.projects),
     path("contacts/", views.contacts),
     path("admin/", admin.site.urls),
 ]

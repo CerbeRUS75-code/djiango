@@ -1,31 +1,22 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <title>{{ title }}</title>
-    <meta charset="utf-8" />
-</head>
-<body>
-    <h1>{{ greeting }}</h1>
-    <p>{{ message }}</p>
+﻿{% extends "base.html" %}
+{% load static %}
 
-    {% comment %}
-    Демонстрация шаблонного комментария.
-    {% endcomment %}
+{% block title %}{{ title }}{% endblock title %}
+{% block header %}{{ header }}{% endblock header %}
 
-    <h2>Языки программирования</h2>
-    <ul>
-        {% for lan in langs %}
-            <li>{{ lan }}</li>
-        {% endfor %}
-    </ul>
-
-    <p>Год: {% now "Y" %}</p>
-    <p>Дата: {% now "F j Y" %}</p>
-    <p>Дата и время: {% now "N j, Y, P" %}</p>
-
-    <nav>
-        <a href="/about/">О нас</a> |
-        <a href="/contacts/">Контакты</a>
-    </nav>
-</body>
-</html>
+{% block content %}
+<div class="row g-4 align-items-center">
+    <div class="col-md-7">
+        <p class="lead">Привет! Это учебный сайт-визитка на Django с базовым шаблоном, static-файлами и Bootstrap.</p>
+        <h2 class="h5 mt-4">Технологии</h2>
+        <ul class="list-group">
+            {% for tech in tech_stack %}
+                <li class="list-group-item">{{ tech }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="col-md-5">
+        <img src="{% static 'images/profile.svg' %}" class="img-fluid rounded shadow-sm" alt="Портрет разработчика" />
+    </div>
+</div>
+{% endblock content %}

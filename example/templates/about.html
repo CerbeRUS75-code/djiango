@@ -1,23 +1,21 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <title>{{ title }}</title>
-    <meta charset="utf-8" />
-</head>
-<body>
-    <h1>Страница About</h1>
+﻿{% extends "base.html" %}
+{% load static %}
 
-    <p>С экранированием:</p>
-    <div>{{ body }}</div>
+{% block title %}{{ title }}{% endblock title %}
+{% block header %}{{ header }}{% endblock header %}
 
-    <p>Без экранирования (autoescape off):</p>
-    {% autoescape off %}
-        <div>{{ body }}</div>
-    {% endautoescape %}
-
-    <nav>
-        <a href="/">Главная</a> |
-        <a href="/contacts/">Контакты</a>
-    </nav>
-</body>
-</html>
+{% block content %}
+<div class="row g-4 align-items-center">
+    <div class="col-md-8">
+        <ul class="list-group mb-3">
+            {% for fact in facts %}
+                <li class="list-group-item">{{ fact }}</li>
+            {% endfor %}
+        </ul>
+        <p class="text-muted">Нравится автоматизация, качество кода и понятная архитектура.</p>
+    </div>
+    <div class="col-md-4 text-center">
+        <img src="{% static 'images/workspace.svg' %}" class="img-fluid rounded border" alt="Рабочее место" />
+    </div>
+</div>
+{% endblock content %}

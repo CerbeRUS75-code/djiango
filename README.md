@@ -1,4 +1,4 @@
-﻿# Django Учебный Проект (lesson-4)
+﻿# Django Учебный Проект (lesson-5)
 
 ## Запуск
 
@@ -11,24 +11,14 @@ C:\django\Python312\python.exe manage.py runserver 127.0.0.1:8000
 
 - http://127.0.0.1:8000/
 - http://127.0.0.1:8000/about/
+- http://127.0.0.1:8000/projects/
 - http://127.0.0.1:8000/contacts/
 
-## Что проверять
+## Что реализовано
 
-- Главная `/`:
-  - приветствие по времени суток (`Доброе утро/день/вечер`)
-  - вывод переменных `{{ title }}`, `{{ message }}`
-  - цикл `{% for %}` по списку языков
-  - тег времени `{% now %}`
-- About `/about/`:
-  - разница между обычным выводом `{{ body }}` и блоком `{% autoescape off %}`
-- Contacts `/contacts/`:
-  - условие `{% if / elif / else %}` для `n = -5`
-
-## Файлы
-
-- `example/views.py`
-- `Django/urls.py`
-- `example/templates/index.html`
-- `example/templates/about.html`
-- `example/templates/contacts.html`
+- Static-файлы: `example/static/css/style.css`, `example/static/images/*`
+- Базовый шаблон: `example/templates/base.html`
+- Наследование шаблонов через `{% extends "base.html" %}`
+- Вложенный шаблон подвала через `{% include "footer.html" %}`
+- Bootstrap (CDN) + собственный CSS
+- Сайт-визитка из нескольких страниц с изображениями
