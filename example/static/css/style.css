@@ -19,3 +19,23 @@ h1 {
 footer {
     background: #ffffff;
 }
+
+table td,
+table th {
+    vertical-align: middle;
+}
+
+.table td:first-child {
+    width: 38%;
+    font-weight: 600;
+}
+
+.table textarea {
+    min-height: 120px;
+}
+
+input,
+select,
+textarea {
+    max-width: 100%;
+}
