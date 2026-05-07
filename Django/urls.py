@@ -9,10 +9,8 @@ from example import views
 
 
 urlpatterns = [
-    path("", views.index),
-    path("about/", views.about),
-    path("projects/", views.projects),
-    path("contacts/", views.contacts),
-    path("forms/", views.forms_page),
+    path("", views.index, name="index"),
+    path("add/", views.add_book, name="add_book"),
+    path("add-author/", views.add_author, name="add_author"),
     path("admin/", admin.site.urls),
 ]
